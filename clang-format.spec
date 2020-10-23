@@ -8,6 +8,9 @@ Summary: Formats source code according to specification file.
 Source: %{name}-%{version}.tar.gz
 Group: Utilities/System
 Packager: david@summersoft.fay.ar.us
+%if 0%{?rhel} == 7
+BuildRequires: devtoolset-9
+%endif
 BuildRequires: gcc
 BuildRequires: gcc-c++
 BuildRequires: cmake3
@@ -27,7 +30,15 @@ Clang-format formats source code according to specification file.
 # Build the distribution.
 mkdir -p build
 cd build
-cmake3 ../llvm -DLLVM_ENABLE_PROJECTS="clang"
+
+echo "Dist: " 0%{?dist}
+
+%if 0%{?rhel} == 7
+  scl enable devtoolset-9 bash <<EOF
+  cmake3 ../llvm -DLLVM_ENABLE_PROJECTS="clang"
+%else
+  cmake3 ../llvm -DLLVM_ENABLE_PROJECTS="clang"
+%endif
 make
 
 %install
