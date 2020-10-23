@@ -1,0 +1,6 @@
+Builds CentOS 7 and 8 RPMs for clang-format executable.
+
+To build:
+
+git submodule update --init
+make
