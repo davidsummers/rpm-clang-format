@@ -39,7 +39,7 @@ echo "Dist: " 0%{?dist}
 %else
   cmake3 ../llvm -DLLVM_ENABLE_PROJECTS="clang"
 %endif
-make
+make -j `nproc`
 
 %install
 
