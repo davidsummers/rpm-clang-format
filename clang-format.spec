@@ -38,9 +38,9 @@ echo "Dist: " 0%{?dist}
 
 %if 0%{?rhel} == 7
   scl enable devtoolset-9 bash <<EOF
-  cmake3 ../llvm -DLLVM_ENABLE_PROJECTS="clang"
+  cmake3 ../llvm -DCMAKE_BUILD_TYPE=Release -DLLVM_ENABLE_PROJECTS="clang"
 %else
-  cmake3 ../llvm -DLLVM_ENABLE_PROJECTS="clang"
+  cmake3 ../llvm -DCMAKE_BUILD_TYPE=Release -DLLVM_ENABLE_PROJECTS="clang"
 %endif
 make -j `nproc`
 
