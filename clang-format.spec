@@ -20,6 +20,9 @@ ExcludeArch: noarch
 Clang-format formats source code according to specification file.
 
 %changelog
+* Sun Apr 18 2021 David Summers <david@summersoft.fay-ar.us> 12.0.0-1
+- Clang-format 12.0.0
+
 * Fri Oct 23 2020 David Summers <david@summersoft.fay-ar.us> 11.0.0-1
 - Clang-format 11.0.0
 
